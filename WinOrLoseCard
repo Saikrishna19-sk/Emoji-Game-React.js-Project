@@ -1,0 +1,105 @@
+import './index.css'
+
+const WinOrLoseCard = props => {
+  const {isWon, score, playAgain} = props
+
+  const headingText = isWon ? 'You Won' : 'You Lose'
+
+  const scoreText = isWon ? 'Best Score' : 'Score'
+
+  const imageUrl = isWon
+    ? 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
+    : 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
+
+  const finalScore = isWon ? '12/12' : `${score}/12`
+
+  return (
+    <div className="result-container">
+      <div className="text-container">
+        <h1>{headingText}</h1>
+
+        <p>{scoreText}</p>
+
+        <p>{finalScore}</p>
+
+        <button type="button" className="play-again-btn" onClick={playAgain}>
+          Play Again
+        </button>
+      </div>
+
+      <img src={imageUrl} alt="win or lose" className="result-image" />
+    </div>
+  )
+}
+
+export default WinOrLoseCard
+
+#index.css
+.result-container {
+  background-color: #ffffff33;
+  border: 2px solid #ffffff30;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  width: 80%;
+  max-width: 900px;
+}
+
+.text-container {
+  text-align: center;
+  margin-right: 40px;
+}
+
+.text-container h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.text-container p {
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+.play-again-btn {
+  background-color: #ffce27;
+  color: #3d3d3d;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+}
+
+.result-image {
+  width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .result-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .text-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .result-image {
+    width: 220px;
+  }
+
+  .text-container h1 {
+    font-size: 36px;
+  }
+
+  .text-container p {
+    font-size: 22px;
+  }
+}
