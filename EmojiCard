@@ -1,0 +1,42 @@
+import './index.css'
+
+const EmojiCard = props => {
+  const {emojiDetails, clickedEmoji} = props
+  const {id, emojiName, emojiUrl} = emojiDetails
+
+  const onClickEmoji = () => {
+    clickedEmoji(id)
+  }
+
+  return (
+    <li className="emoji-item">
+      <button type="button" className="emoji-button" onClick={onClickEmoji}>
+        <img src={emojiUrl} alt={emojiName} className="emoji-image" />
+      </button>
+    </li>
+  )
+}
+
+export default EmojiCard
+
+#Emoji Card CSS
+/* Write your code here. */
+.app-container {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, #9796f0, #fbc7d4);
+  font-family: 'Roboto';
+}
+.body-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+.emoji-list {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
